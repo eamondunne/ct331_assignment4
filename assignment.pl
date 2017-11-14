@@ -16,3 +16,5 @@ rev([H|T],Z,Acc) :-
 
 
 %insertElementIntoListEnd(El, List, NewList)
+insertElementIntoListEnd(El, List, NewList):-
+  mergeLists(List,[El],NewList).
