@@ -1,7 +1,18 @@
 %Definitions for isElementInList(El, List)
-
-%Definitions for reverseList(List, ReversedList)
-
-%insertElementIntoListEnd(El, List, NewList)
+isElementInList(El,[El|Rest]).
+isElementInList(El,[DisregardHead|Tail]):-
+          isElementInList(El,Tail).
 
 %Definitions for mergeLists(List1, List2, Merged)
+mergeLists([], List, List).
+mergeLists([Head|Tail], List, [Head|Rest]):-
+          mergeLists(Tail, List, Rest).
+
+%Definitions for reverseList(List, ReversedList)
+reverseList(L,R):- rev(L,R,[]).
+rev([],Z,Z).
+rev([H|T],Z,Acc) :-
+      rev(T,Z,[H|Acc]).
+
+
+%insertElementIntoListEnd(El, List, NewList)
